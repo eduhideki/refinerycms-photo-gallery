@@ -9,7 +9,7 @@ module Refinery
         after :store, :delete_tmp_dir
         after :store, :delete_uploaded_file
 
-
+        include Cloudinary::CarrierWave
         # Include RMagick or ImageScience support
         #     include CarrierWave::RMagick
         #     include CarrierWave::ImageScience
@@ -24,7 +24,7 @@ module Refinery
             "#{Rails.root.to_s}/tmp/uploads" if ENV['HEROKU'] == 'true'
           end
         else
-          storage :file
+          #storage :file
         end
 
 
